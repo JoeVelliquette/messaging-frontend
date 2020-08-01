@@ -1,12 +1,11 @@
 import React, {useEffect, useRef} from 'react';
 import {connect} from "react-redux";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
-import {StyledBadge} from "./StyledBadge";
 import {selectConversation} from '../redux/actions/Actions';
+import AvatarContainer from "./common/AvatarContainer";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 
 function ConversationList(props) {
 
@@ -39,20 +38,7 @@ function ConversationList(props) {
                     selected={props.selected && item.user.id === props.selected.id}
                     onClick={() => props.selectConversation(item.userId)}>
                     <ListItemAvatar>
-                        {item.user.active ?
-                            <StyledBadge
-                                overlap="circle"
-                                anchorOrigin={{
-                                    vertical: 'bottom',
-                                    horizontal: 'right',
-                                }}
-                                variant="dot"
-                            >
-                                <Avatar alt={item.user.name} src={item.user.avatar} />
-                            </StyledBadge>
-                            :
-                            <Avatar alt={item.user.name} src={item.user.avatar} />
-                        }
+                        <AvatarContainer users={[item.user]} marginRight={10}/>
                     </ListItemAvatar>
                     <ListItemText primary={item.user.name} secondary={item.lastMessage} />
                 </ListItem>

@@ -8,7 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Checkbox from '@material-ui/core/Checkbox';
 import Avatar from '@material-ui/core/Avatar';
-import {StyledBadge} from "../StyledBadge";
+import {StyledBadge} from "../common/StyledBadge";
 import {Box} from "@material-ui/core";
 
 function NewMessageModalContent(props) {
